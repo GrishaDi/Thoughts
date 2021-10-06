@@ -55,6 +55,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0497D0E6270D557C00781699 /* Core Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				04EE19752708691600027E54 /* HomeViewController.swift */,
+				0497D0D22708804D00781699 /* ProfileViewController.swift */,
+				0497D0D4270880F700781699 /* TabBarViewController.swift */,
+			);
+			path = "Core Tabs";
+			sourceTree = "<group>";
+		};
+		0497D0E7270D55B000781699 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				0497D0D6270AA3BA00781699 /* SigninViewController.swift */,
+				0497D0D8270AA3E200781699 /* SignUpViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		0497D0E8270D55C200781699 /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+				0497D0DA270AA40E00781699 /* ViewPostViewController.swift */,
+				0497D0DC270AA43100781699 /* CreateNewPostViewController.swift */,
+			);
+			path = Posts;
+			sourceTree = "<group>";
+		};
 		04EE19652708691500027E54 = {
 			isa = PBXGroup;
 			children = (
@@ -102,13 +130,9 @@
 		04EE198727087C8F00027E54 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				04EE19752708691600027E54 /* HomeViewController.swift */,
-				0497D0D22708804D00781699 /* ProfileViewController.swift */,
-				0497D0D4270880F700781699 /* TabBarViewController.swift */,
-				0497D0D6270AA3BA00781699 /* SigninViewController.swift */,
-				0497D0D8270AA3E200781699 /* SignUpViewController.swift */,
-				0497D0DA270AA40E00781699 /* ViewPostViewController.swift */,
-				0497D0DC270AA43100781699 /* CreateNewPostViewController.swift */,
+				0497D0E7270D55B000781699 /* Auth */,
+				0497D0E6270D557C00781699 /* Core Tabs */,
+				0497D0E8270D55C200781699 /* Posts */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
