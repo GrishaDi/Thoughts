@@ -12,7 +12,7 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-    setUpControllers()
+        setUpControllers()
     }
     
     private func setUpControllers () {
