@@ -21,6 +21,7 @@
 		0497D0ED270E94F600781699 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0497D0EC270E94F600781699 /* FirebaseStorage */; };
 		0497D0EF270E94F600781699 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0497D0EE270E94F600781699 /* FirebaseFirestore */; };
 		0497D0F1270FE8C900781699 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0497D0F0270FE8C900781699 /* GoogleService-Info.plist */; };
+		0497D0F42713F1D200781699 /* Purchases in Frameworks */ = {isa = PBXBuildFile; productRef = 0497D0F32713F1D200781699 /* Purchases */; };
 		04EE19722708691600027E54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE19712708691600027E54 /* AppDelegate.swift */; };
 		04EE19742708691600027E54 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE19732708691600027E54 /* SceneDelegate.swift */; };
 		04EE19762708691600027E54 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE19752708691600027E54 /* HomeViewController.swift */; };
@@ -57,6 +58,7 @@
 				0497D0EB270E94F600781699 /* FirebaseAuth in Frameworks */,
 				0497D0ED270E94F600781699 /* FirebaseStorage in Frameworks */,
 				0497D0EF270E94F600781699 /* FirebaseFirestore in Frameworks */,
+				0497D0F42713F1D200781699 /* Purchases in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +189,7 @@
 				0497D0EA270E94F600781699 /* FirebaseAuth */,
 				0497D0EC270E94F600781699 /* FirebaseStorage */,
 				0497D0EE270E94F600781699 /* FirebaseFirestore */,
+				0497D0F32713F1D200781699 /* Purchases */,
 			);
 			productName = Thoughts;
 			productReference = 04EE196E2708691600027E54 /* Thoughts.app */;
@@ -217,6 +220,7 @@
 			mainGroup = 04EE19652708691500027E54;
 			packageReferences = (
 				0497D0E9270E94F600781699 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				0497D0F22713F1D200781699 /* XCRemoteSwiftPackageReference "purchases-ios" */,
 			);
 			productRefGroup = 04EE196F2708691600027E54 /* Products */;
 			projectDirPath = "";
@@ -463,6 +467,14 @@
 				minimumVersion = 8.8.1;
 			};
 		};
+		0497D0F22713F1D200781699 /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.12.6;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -480,6 +492,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0497D0E9270E94F600781699 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
+		};
+		0497D0F32713F1D200781699 /* Purchases */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0497D0F22713F1D200781699 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = Purchases;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
