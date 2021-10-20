@@ -38,7 +38,7 @@ final class DatabaseManager {
     ) {
         
     }
-    D
+    
     public func insertUser(
         user: String,
         completion: @escaping (Bool) -> Void
