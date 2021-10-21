@@ -15,7 +15,8 @@ final class AuthManager {
     
     private init() {}
     
-    private var isSignedIn: Bool {
+    // Changed to public vs private
+    public var isSignedIn: Bool {
         return auth.currentUser != nil
     }
     
