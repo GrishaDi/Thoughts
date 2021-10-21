@@ -13,10 +13,10 @@ final class AuthManager {
     
     private let auth  = Auth.auth()
     
-    
     private init() {}
     
-    private var isSignedIn: Bool {
+    // Changed to public vs private
+    public var isSignedIn: Bool {
         return auth.currentUser != nil
     }
     
@@ -26,7 +26,7 @@ final class AuthManager {
         completion: @escaping (Bool) -> Void
     ) {
         guard !email.trimmingCharacters(in: .whitespaces).isEmpty,
-        guard !password.trimmingCharacters(in: .whitespaces).isEmpty,
+              !password.trimmingCharacters(in: .whitespaces).isEmpty,
               password.count >= 6 else {
             return
         }
@@ -48,7 +48,7 @@ final class AuthManager {
         completion: @escaping (Bool) -> Void
     ) {
         guard !email.trimmingCharacters(in: .whitespaces).isEmpty,
-        guard !password.trimmingCharacters(in: .whitespaces).isEmpty,
+              !password.trimmingCharacters(in: .whitespaces).isEmpty,
               password.count >= 6 else {
             return
         }
