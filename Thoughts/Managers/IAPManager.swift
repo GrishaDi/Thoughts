@@ -13,15 +13,15 @@ final class IAPManager {
     
     private init() {}
     
-    func isPremium () {
+    func isPremium() -> Bool {
+        return false
+    }
+    
+    func subscribe() {
         
     }
     
-    func subscribe () {
-        
-    }
-    
-    func restorePurchases () {
+    func restorePurchases() {
         
     }
 }
