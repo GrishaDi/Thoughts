@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		048DDF9427226CD600A818BD /* PayWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048DDF9327226CD600A818BD /* PayWallViewController.swift */; };
 		0497D0D32708804D00781699 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0497D0D22708804D00781699 /* ProfileViewController.swift */; };
 		0497D0D5270880F700781699 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0497D0D4270880F700781699 /* TabBarViewController.swift */; };
 		0497D0D7270AA3BA00781699 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0497D0D6270AA3BA00781699 /* SignInViewController.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		048DDF9327226CD600A818BD /* PayWallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallViewController.swift; sourceTree = "<group>"; };
 		0497D0D22708804D00781699 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0497D0D4270880F700781699 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		0497D0D6270AA3BA00781699 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +71,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		048DDF9227226C1400A818BD /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				048DDF9327226CD600A818BD /* PayWallViewController.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		0497D0E6270D557C00781699 /* Core Tabs */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +156,7 @@
 		04EE198727087C8F00027E54 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				048DDF9227226C1400A818BD /* Other */,
 				0497D0E7270D55B000781699 /* Auth */,
 				0497D0E6270D557C00781699 /* Core Tabs */,
 				0497D0E8270D55C200781699 /* Posts */,
@@ -270,6 +281,7 @@
 				04EE19742708691600027E54 /* SceneDelegate.swift in Sources */,
 				0497D0DB270AA40E00781699 /* ViewPostViewController.swift in Sources */,
 				0497D0E5270AA63E00781699 /* StorageManager.swift in Sources */,
+				048DDF9427226CD600A818BD /* PayWallViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
