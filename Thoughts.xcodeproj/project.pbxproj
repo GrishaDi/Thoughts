@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0431AF61273E28E900CD3A6E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0431AF60273E28E800CD3A6E /* StoreKit.framework */; };
 		048DDF9427226CD600A818BD /* PayWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048DDF9327226CD600A818BD /* PayWallViewController.swift */; };
 		0497D0D32708804D00781699 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0497D0D22708804D00781699 /* ProfileViewController.swift */; };
 		0497D0D5270880F700781699 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0497D0D4270880F700781699 /* TabBarViewController.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0431AF60273E28E800CD3A6E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		048DDF9327226CD600A818BD /* PayWallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallViewController.swift; sourceTree = "<group>"; };
 		0497D0D22708804D00781699 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0497D0D4270880F700781699 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			files = (
 				0497D0EB270E94F600781699 /* FirebaseAuth in Frameworks */,
 				0497D0ED270E94F600781699 /* FirebaseStorage in Frameworks */,
+				0431AF61273E28E900CD3A6E /* StoreKit.framework in Frameworks */,
 				0497D0EF270E94F600781699 /* FirebaseFirestore in Frameworks */,
 				0497D0F42713F1D200781699 /* Purchases in Frameworks */,
 			);
@@ -71,6 +74,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0431AF5F273E28E800CD3A6E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0431AF60273E28E800CD3A6E /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		048DDF9227226C1400A818BD /* Other */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +123,7 @@
 			children = (
 				04EE19702708691600027E54 /* Thoughts */,
 				04EE196F2708691600027E54 /* Products */,
+				0431AF5F273E28E800CD3A6E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
