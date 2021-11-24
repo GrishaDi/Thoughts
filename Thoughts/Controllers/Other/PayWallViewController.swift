@@ -14,6 +14,12 @@ class PayWallViewController: UIViewController {
     // Terms of service
     // Pricing + product info
     // Header image
+    private let headerImageView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(systemName: "crown.fill"))
+        imageView.tintColor = .white
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    } ()
     
     override func viewDidLoad() {
         super.viewDidLoad()
