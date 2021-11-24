@@ -9,7 +9,6 @@ import UIKit
 
 class PayWallViewController: UIViewController {
 
-    // Close button + Title
     // Call to action buttons
     // Terms of service
     // Pricing + product info
@@ -24,6 +23,20 @@ class PayWallViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        
+        setUpCloseButton()
     }
+    
+    // Close
+    private func setUpCloseButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .close,
+            target: self,
+            action: #selector(didTapClose)
+        )
+    }
+    
+    @objc private func didTapClose() {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
