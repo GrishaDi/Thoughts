@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0431AF61273E28E900CD3A6E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0431AF60273E28E800CD3A6E /* StoreKit.framework */; };
+		0466D66D274DF6B7005D229D /* PayWallHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466D66C274DF6B7005D229D /* PayWallHeaderView.swift */; };
 		048DDF9427226CD600A818BD /* PayWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048DDF9327226CD600A818BD /* PayWallViewController.swift */; };
 		0497D0D32708804D00781699 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0497D0D22708804D00781699 /* ProfileViewController.swift */; };
 		0497D0D5270880F700781699 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0497D0D4270880F700781699 /* TabBarViewController.swift */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		0431AF60273E28E800CD3A6E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		0466D66B274CA2FB005D229D /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		0466D66C274DF6B7005D229D /* PayWallHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallHeaderView.swift; sourceTree = "<group>"; };
 		048DDF9327226CD600A818BD /* PayWallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallViewController.swift; sourceTree = "<group>"; };
 		0497D0D22708804D00781699 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0497D0D4270880F700781699 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				04EE197C2708691900027E54 /* LaunchScreen.storyboard */,
+				0466D66C274DF6B7005D229D /* PayWallHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				0497D0E3270AA61800781699 /* AuthManager.swift in Sources */,
 				0497D0E1270AA5F800781699 /* DatabaseManager.swift in Sources */,
 				0497D0D9270AA3E200781699 /* SignUpViewController.swift in Sources */,
+				0466D66D274DF6B7005D229D /* PayWallHeaderView.swift in Sources */,
 				04EE19722708691600027E54 /* AppDelegate.swift in Sources */,
 				0497D0D7270AA3BA00781699 /* SignInViewController.swift in Sources */,
 				04EC6647271FC1FC009ED137 /* User.swift in Sources */,

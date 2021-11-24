@@ -12,13 +12,7 @@ class PayWallViewController: UIViewController {
     // Call to action buttons
     // Terms of service
     // Pricing + product info
-    // Header image
-    private let headerImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(systemName: "crown.fill"))
-        imageView.tintColor = .white
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    } ()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +20,7 @@ class PayWallViewController: UIViewController {
         setUpCloseButton()
     }
     
-    // Close
+    // Close Button
     private func setUpCloseButton() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .close,
