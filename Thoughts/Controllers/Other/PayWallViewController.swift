@@ -9,6 +9,8 @@ import UIKit
 
 class PayWallViewController: UIViewController {
 
+    private let header = PayWallHeaderView()
+    
     // Call to action buttons
     // Terms of service
     // Pricing + product info
@@ -17,7 +19,17 @@ class PayWallViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        view.addSubview(header)
         setUpCloseButton()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        header.frame = CGRect(
+            x: 0,
+            y: view.safeAreaInsets.top,
+            width: view.width,
+            height: view.height/3.2)
     }
     
     // Close Button
