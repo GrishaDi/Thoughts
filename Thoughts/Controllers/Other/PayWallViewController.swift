@@ -11,6 +11,8 @@ class PayWallViewController: UIViewController {
 
     private let header = PayWallHeaderView()
     
+    private let heroView = PayWallDescriptionView()
+    
     // Call to action buttons
     private let buyButton: UIButton = {
         let button = UIButton()
@@ -55,6 +57,7 @@ class PayWallViewController: UIViewController {
         view.addSubview(buyButton)
         view.addSubview(restoreButton)
         view.addSubview(termsView)
+        view.addSubview(heroView)
         setUpCloseButton()
         setUpButtons()
     }
@@ -87,6 +90,13 @@ class PayWallViewController: UIViewController {
             y: restoreButton.top - 60,
             width: view.width - 50,
             height: 50
+        )
+        
+        heroView.frame = CGRect(
+            x: 0,
+            y: header.bottom,
+            width: view.width,
+            height: buyButton.top - view.safeAreaInsets.top - header.height
         )
     }
     
