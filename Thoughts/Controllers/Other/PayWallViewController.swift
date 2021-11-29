@@ -74,6 +74,20 @@ class PayWallViewController: UIViewController {
             width: view.width - 20,
             height: 100
         )
+        
+        restoreButton.frame = CGRect(
+            x: 25,
+            y: termsView.top - 70,
+            width: view.width - 50,
+            height: 50
+        )
+        
+        buyButton.frame = CGRect(
+            x: 25,
+            y: restoreButton.top - 60,
+            width: view.width - 50,
+            height: 50
+        )
     }
     
     private func setUpButtons() {
