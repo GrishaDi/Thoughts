@@ -32,7 +32,7 @@ class PayWallDescriptionView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         clipsToBounds = true
-        addSubview(descriptorLable)
+        addSubview(descriptorLabel)
         addSubview(priceLabel)
     }
     
@@ -42,7 +42,7 @@ class PayWallDescriptionView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        descriptorLable.frame = CGRect(x: 20, y: 0, width: width - 40, height: height/2)
+        descriptorLabel.frame = CGRect(x: 20, y: 0, width: width - 40, height: height/2)
         priceLabel.frame = CGRect(x: 20, y: height/2, width: width - 40, height: height/2)
     }
 }
