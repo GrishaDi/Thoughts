@@ -5,6 +5,7 @@
 //  Created by Grisha Dil' on 02.10.2021.
 //
 
+import Purchases
 import Firebase
 import UIKit
 
@@ -16,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
+        
+        Purchases.configure(withAPIKey: "mLzMLzuThwnpWeRtUcqOgZXjGKOnYTtW")
         
         return true
     }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0431AF61273E28E900CD3A6E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0431AF60273E28E800CD3A6E /* StoreKit.framework */; };
+		04558BFE275DBB3500353EF4 /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = 04558BFD275DBB3500353EF4 /* StoreKitTestCertificate.cer */; };
 		0466D66D274DF6B7005D229D /* PayWallHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466D66C274DF6B7005D229D /* PayWallHeaderView.swift */; };
 		0466D66F274F31C5005D229D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466D66E274F31C5005D229D /* Extensions.swift */; };
 		0466D671275487F9005D229D /* PayWallDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466D670275487F9005D229D /* PayWallDescriptionView.swift */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		0431AF60273E28E800CD3A6E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		04558BFD275DBB3500353EF4 /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = StoreKitTestCertificate.cer; path = ../../../../../StoreKitTestCertificate.cer; sourceTree = "<group>"; };
 		0466D66B274CA2FB005D229D /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		0466D66C274DF6B7005D229D /* PayWallHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallHeaderView.swift; sourceTree = "<group>"; };
 		0466D66E274F31C5005D229D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				0466D66B274CA2FB005D229D /* Configuration.storekit */,
+				04558BFD275DBB3500353EF4 /* StoreKitTestCertificate.cer */,
 				04EE19752708691600027E54 /* HomeViewController.swift */,
 				0497D0D22708804D00781699 /* ProfileViewController.swift */,
 				0497D0D4270880F700781699 /* TabBarViewController.swift */,
@@ -279,6 +282,7 @@
 				04EE197E2708691900027E54 /* LaunchScreen.storyboard in Resources */,
 				04EE197B2708691900027E54 /* Assets.xcassets in Resources */,
 				0497D0F1270FE8C900781699 /* GoogleService-Info.plist in Resources */,
+				04558BFE275DBB3500353EF4 /* StoreKitTestCertificate.cer in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
