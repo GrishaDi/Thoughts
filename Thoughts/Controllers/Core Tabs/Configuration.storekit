@@ -25,11 +25,7 @@
           "familyShareable" : false,
           "groupNumber" : 1,
           "internalID" : "1C7FEC7A",
-          "introductoryOffer" : {
-            "displayPrice" : "",
-            "internalID" : "CFCBD599",
-            "paymentMode" : "none"
-          },
+          "introductoryOffer" : null,
           "localizations" : [
             {
               "description" : "Unlock all Clear Thoughts posts.",

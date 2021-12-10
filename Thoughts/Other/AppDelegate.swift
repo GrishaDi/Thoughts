@@ -20,6 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Purchases.configure(withAPIKey: "mLzMLzuThwnpWeRtUcqOgZXjGKOnYTtW")
         
+        IAPManager.shared.fetchPackages { package in
+            guard let package = package else {
+                return 
+            }
+            print("Got package!")
+            IAPManager.shared.subscribe(package: package) { success in
+                print("Success: \(success)")
+            }
+        }
+        
         return true
     }
 
