@@ -27,9 +27,11 @@ final class IAPManager {
                       return
                   }
             if entitlements.all["Premium"]?.isActive == true {
+                print("Got updated status of subscribed")
                 UserDefaults.standard.set(true, forKey: "premium")
                 completion?(true)
             } else {
+                print("Got updated status of NOT subscribed")
                 UserDefaults.standard.set(false, forKey: "premium")
                 completion?(false)
             }
@@ -97,9 +99,11 @@ final class IAPManager {
                   }
             
             if entitlements.all["Premium"]?.isActive == true {
+                print("Restore success")
                 UserDefaults.standard.set(true, forKey: "premium")
                 completion(true)
             } else {
+                print("Restore failure")
                 UserDefaults.standard.set(false, forKey: "premium")
                 completion(false)
             }
