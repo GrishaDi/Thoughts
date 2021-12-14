@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0431AF61273E28E900CD3A6E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0431AF60273E28E800CD3A6E /* StoreKit.framework */; };
+		04341F022762E9AA009DA78C /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = 04341F012762E9AA009DA78C /* StoreKitTestCertificate.cer */; };
+		0466D66D274DF6B7005D229D /* PayWallHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466D66C274DF6B7005D229D /* PayWallHeaderView.swift */; };
+		0466D66F274F31C5005D229D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466D66E274F31C5005D229D /* Extensions.swift */; };
+		0466D671275487F9005D229D /* PayWallDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466D670275487F9005D229D /* PayWallDescriptionView.swift */; };
+		048DDF9427226CD600A818BD /* PayWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048DDF9327226CD600A818BD /* PayWallViewController.swift */; };
 		0497D0D32708804D00781699 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0497D0D22708804D00781699 /* ProfileViewController.swift */; };
 		0497D0D5270880F700781699 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0497D0D4270880F700781699 /* TabBarViewController.swift */; };
 		0497D0D7270AA3BA00781699 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0497D0D6270AA3BA00781699 /* SignInViewController.swift */; };
@@ -32,6 +38,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0431AF60273E28E800CD3A6E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		04341F012762E9AA009DA78C /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = SOURCE_ROOT; };
+		0466D66B274CA2FB005D229D /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		0466D66C274DF6B7005D229D /* PayWallHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallHeaderView.swift; sourceTree = "<group>"; };
+		0466D66E274F31C5005D229D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		0466D670275487F9005D229D /* PayWallDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallDescriptionView.swift; sourceTree = "<group>"; };
+		048DDF9327226CD600A818BD /* PayWallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallViewController.swift; sourceTree = "<group>"; };
 		0497D0D22708804D00781699 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0497D0D4270880F700781699 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		0497D0D6270AA3BA00781699 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +74,7 @@
 			files = (
 				0497D0EB270E94F600781699 /* FirebaseAuth in Frameworks */,
 				0497D0ED270E94F600781699 /* FirebaseStorage in Frameworks */,
+				0431AF61273E28E900CD3A6E /* StoreKit.framework in Frameworks */,
 				0497D0EF270E94F600781699 /* FirebaseFirestore in Frameworks */,
 				0497D0F42713F1D200781699 /* Purchases in Frameworks */,
 			);
@@ -69,9 +83,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0431AF5F273E28E800CD3A6E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0431AF60273E28E800CD3A6E /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		048DDF9227226C1400A818BD /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				048DDF9327226CD600A818BD /* PayWallViewController.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		0497D0E6270D557C00781699 /* Core Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				0466D66B274CA2FB005D229D /* Configuration.storekit */,
 				04EE19752708691600027E54 /* HomeViewController.swift */,
 				0497D0D22708804D00781699 /* ProfileViewController.swift */,
 				0497D0D4270880F700781699 /* TabBarViewController.swift */,
@@ -102,6 +133,7 @@
 			children = (
 				04EE19702708691600027E54 /* Thoughts */,
 				04EE196F2708691600027E54 /* Products */,
+				0431AF5F273E28E800CD3A6E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +148,7 @@
 		04EE19702708691600027E54 /* Thoughts */ = {
 			isa = PBXGroup;
 			children = (
+				04341F012762E9AA009DA78C /* StoreKitTestCertificate.cer */,
 				04EE198A27087CB900027E54 /* Managers */,
 				04EE198827087C9E00027E54 /* Other */,
 				04EE198727087C8F00027E54 /* Controllers */,
@@ -139,6 +172,8 @@
 			isa = PBXGroup;
 			children = (
 				04EE197C2708691900027E54 /* LaunchScreen.storyboard */,
+				0466D66C274DF6B7005D229D /* PayWallHeaderView.swift */,
+				0466D670275487F9005D229D /* PayWallDescriptionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -146,6 +181,7 @@
 		04EE198727087C8F00027E54 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				048DDF9227226C1400A818BD /* Other */,
 				0497D0E7270D55B000781699 /* Auth */,
 				0497D0E6270D557C00781699 /* Core Tabs */,
 				0497D0E8270D55C200781699 /* Posts */,
@@ -160,6 +196,7 @@
 				04EE19712708691600027E54 /* AppDelegate.swift */,
 				0497D0F0270FE8C900781699 /* GoogleService-Info.plist */,
 				04EE19732708691600027E54 /* SceneDelegate.swift */,
+				0466D66E274F31C5005D229D /* Extensions.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -242,6 +279,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04341F022762E9AA009DA78C /* StoreKitTestCertificate.cer in Resources */,
 				04EE197E2708691900027E54 /* LaunchScreen.storyboard in Resources */,
 				04EE197B2708691900027E54 /* Assets.xcassets in Resources */,
 				0497D0F1270FE8C900781699 /* GoogleService-Info.plist in Resources */,
@@ -256,10 +294,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				04EC6649271FC21A009ED137 /* BlogPost.swift in Sources */,
+				0466D671275487F9005D229D /* PayWallDescriptionView.swift in Sources */,
+				0466D66F274F31C5005D229D /* Extensions.swift in Sources */,
 				04EE19762708691600027E54 /* HomeViewController.swift in Sources */,
 				0497D0E3270AA61800781699 /* AuthManager.swift in Sources */,
 				0497D0E1270AA5F800781699 /* DatabaseManager.swift in Sources */,
 				0497D0D9270AA3E200781699 /* SignUpViewController.swift in Sources */,
+				0466D66D274DF6B7005D229D /* PayWallHeaderView.swift in Sources */,
 				04EE19722708691600027E54 /* AppDelegate.swift in Sources */,
 				0497D0D7270AA3BA00781699 /* SignInViewController.swift in Sources */,
 				04EC6647271FC1FC009ED137 /* User.swift in Sources */,
@@ -270,6 +311,7 @@
 				04EE19742708691600027E54 /* SceneDelegate.swift in Sources */,
 				0497D0DB270AA40E00781699 /* ViewPostViewController.swift in Sources */,
 				0497D0E5270AA63E00781699 /* StorageManager.swift in Sources */,
+				048DDF9427226CD600A818BD /* PayWallViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,7 +380,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -393,7 +435,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
