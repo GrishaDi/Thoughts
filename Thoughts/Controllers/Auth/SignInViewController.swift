@@ -9,17 +9,26 @@ import UIKit
 
 class SignInViewController: UITabBarController {
 
+    //Header view
+    private let headerView = SignInHeaderView()
+    
+    //Email field
+    
+    //Password field
+    
+    //Sign In Button
+    
+    //Create Account
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Sign In"
         view.backgroundColor = .systemBackground
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            if !IAPManager.shared.isPremium() {
-                let vc = PayWallViewController()
-                let navVC = UINavigationController(rootViewController: vc)
-                self.present(navVC, animated: true, completion: nil)
-            }
-        }
+        view.addSubview(headerView)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        headerView.frame = CGRect(x: 0, y: view.safeAreaInsets.top, width: view.width, height: view.height/5)
     }
 }
