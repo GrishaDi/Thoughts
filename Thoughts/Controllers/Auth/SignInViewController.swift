@@ -16,6 +16,8 @@ class SignInViewController: UITabBarController {
     private let emailField: UITextField = {
         let field = UITextField()
         field.keyboardType = .emailAddress
+        field.autocapitalizationType = .none
+        field.autocorrectionType = .no
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 50))
         field.leftViewMode = .always
         field.placeholder = "Email Address"
@@ -32,6 +34,8 @@ class SignInViewController: UITabBarController {
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 50))
         field.leftViewMode = .always
         field.placeholder = "Password"
+        field.autocapitalizationType = .none
+        field.autocorrectionType = .no
         field.isSecureTextEntry = true
         field.backgroundColor = .secondarySystemBackground
         field.layer.cornerRadius = 8
@@ -84,12 +88,27 @@ class SignInViewController: UITabBarController {
     }
     
     @objc func didTapSignIn() {
-        
+        guard let email = emailField.text, !email.isEmpty,
+              let password = passwordField.text, !password.isEmpty else {
+                  return
+              }
+        AuthManager.shared.signIn(email: email, password: password) { [weak self] success in
+            guard success else {
+                return
+            }
+            DispatchQueue.main.async {
+                UserDefaults.standard.set(email, forKey: "email")
+                let vc = TabBarViewController()
+                vc.modalPresentationStyle = .fullScreen
+                self?.present(vc, animated: true)
+            }
+        }
     }
     
     @objc func didTapCreateAccount() {
         let vc = SignUpViewController()
         vc.title = "Create Account"
+        vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
     }
 }

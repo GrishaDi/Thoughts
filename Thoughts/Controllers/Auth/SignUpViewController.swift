@@ -29,6 +29,8 @@ class SignUpViewController: UITabBarController {
     private let emailField: UITextField = {
         let field = UITextField()
         field.keyboardType = .emailAddress
+        field.autocapitalizationType = .none
+        field.autocorrectionType = .no
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 50))
         field.leftViewMode = .always
         field.placeholder = "Email Address"
@@ -43,6 +45,8 @@ class SignUpViewController: UITabBarController {
     private let passwordField: UITextField = {
         let field = UITextField()
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 50))
+        field.autocapitalizationType = .none
+        field.autocorrectionType = .no
         field.leftViewMode = .always
         field.placeholder = "Password"
         field.isSecureTextEntry = true
@@ -87,6 +91,35 @@ class SignUpViewController: UITabBarController {
     }
     
     @objc func didTapSignUp() {
+        guard let email = emailField.text, !email.isEmpty,
+              let password = passwordField.text, !password.isEmpty,
+              let name = nameField.text, !name.isEmpty else {
+                  return
+              }
+        
+        //Create user
+        AuthManager.shared.signUp(email: email, password: password) { [weak self] success in
+            if success {
+                //Update database
+                let newUser = User(name: name, email: email, profilePicture: nil)
+                DatabaseManager.shared.insert(user: newUser) { inserted in
+                    guard inserted else {
+                        return
+                    }
+                    
+                    UserDefaults.standard.set(email, forKey: "email")
+                    UserDefaults.standard.set(name, forKey: "name")
+                    DispatchQueue.main.async {
+                        let vc = TabBarViewController()
+                        vc.modalPresentationStyle = .fullScreen
+                        self?.present(vc, animated: true)
+                    }
+                }
+
+            } else {
+                print("Failed to create account")
+            }
+        }
         
     }
 }
