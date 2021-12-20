@@ -28,6 +28,7 @@
 		0497D0EF270E94F600781699 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0497D0EE270E94F600781699 /* FirebaseFirestore */; };
 		0497D0F1270FE8C900781699 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0497D0F0270FE8C900781699 /* GoogleService-Info.plist */; };
 		0497D0F42713F1D200781699 /* Purchases in Frameworks */ = {isa = PBXBuildFile; productRef = 0497D0F32713F1D200781699 /* Purchases */; };
+		049B505527685317001CB992 /* SignInHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B505427685317001CB992 /* SignInHeaderView.swift */; };
 		04EC6647271FC1FC009ED137 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC6646271FC1FC009ED137 /* User.swift */; };
 		04EC6649271FC21A009ED137 /* BlogPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC6648271FC21A009ED137 /* BlogPost.swift */; };
 		04EE19722708691600027E54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE19712708691600027E54 /* AppDelegate.swift */; };
@@ -56,6 +57,7 @@
 		0497D0E2270AA61800781699 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		0497D0E4270AA63E00781699 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		0497D0F0270FE8C900781699 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		049B505427685317001CB992 /* SignInHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInHeaderView.swift; sourceTree = "<group>"; };
 		04EC6646271FC1FC009ED137 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		04EC6648271FC21A009ED137 /* BlogPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPost.swift; sourceTree = "<group>"; };
 		04EE196E2708691600027E54 /* Thoughts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thoughts.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +176,7 @@
 				04EE197C2708691900027E54 /* LaunchScreen.storyboard */,
 				0466D66C274DF6B7005D229D /* PayWallHeaderView.swift */,
 				0466D670275487F9005D229D /* PayWallDescriptionView.swift */,
+				049B505427685317001CB992 /* SignInHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				0497D0D9270AA3E200781699 /* SignUpViewController.swift in Sources */,
 				0466D66D274DF6B7005D229D /* PayWallHeaderView.swift in Sources */,
 				04EE19722708691600027E54 /* AppDelegate.swift in Sources */,
+				049B505527685317001CB992 /* SignInHeaderView.swift in Sources */,
 				0497D0D7270AA3BA00781699 /* SignInViewController.swift in Sources */,
 				04EC6647271FC1FC009ED137 /* User.swift in Sources */,
 				0497D0D32708804D00781699 /* ProfileViewController.swift in Sources */,
