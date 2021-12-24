@@ -43,7 +43,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         view.backgroundColor = .systemBackground
         setUpSignOutButton()
         setUpTable()
-        title = currentEmail
     }
     
     override func viewDidLayoutSubviews() {
@@ -56,6 +55,40 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
+        setUpTableHeader()
+        fetchProfileData()
+    }
+    
+    private func setUpTableHeader() {
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.width, height: view.width/1.5))
+        headerView.backgroundColor = .systemBlue
+        headerView.clipsToBounds = true
+        tableView.tableHeaderView = headerView
+        
+        // Profile Picture
+        let profilePhoto = UIImageView(image: UIImage(systemName: "person.circle"))
+        profilePhoto.tintColor = .white
+        profilePhoto.contentMode = .scaleAspectFit
+        profilePhoto.frame = CGRect(
+            x: (view.width-(view.width/4))/2,
+            y: (headerView.height-(view.width/4))/2.5,
+            width: view.width/4,
+            height: view.width/4
+        )
+        headerView.addSubview(profilePhoto)
+        
+        // Name
+        
+        // Email
+        let emailLabel = UILabel(frame: CGRect(x: 20, y: profilePhoto.bottom+30, width: view.width-40, height: 100))
+        headerView.addSubview(emailLabel)
+        emailLabel.text = currentEmail
+        emailLabel.textAlignment = .center
+        emailLabel.font = .systemFont(ofSize: 20, weight: .bold)
+    }
+    
+    private func fetchProfileData() {
+        
     }
     
     private func setUpSignOutButton() {
