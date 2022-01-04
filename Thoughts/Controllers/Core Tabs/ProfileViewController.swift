@@ -45,6 +45,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         view.backgroundColor = .systemBackground
         setUpSignOutButton()
         setUpTable()
+        title = "Profile"
     }
     
     override func viewDidLayoutSubviews() {
@@ -61,10 +62,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         fetchProfileData()
     }
     
-    private func setUpTableHeader(profilePhotoRef: String? = nil,
-                                  name: String? = nil) {
+    private func setUpTableHeader(
+        profilePhotoRef: String? = nil,
+        name: String? = nil
+    ) {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.width, height: view.width/1.5))
         headerView.backgroundColor = .systemBlue
+        headerView.isUserInteractionEnabled = true
         headerView.clipsToBounds = true
         tableView.tableHeaderView = headerView
         
@@ -78,15 +82,20 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             width: view.width/4,
             height: view.width/4
         )
+        profilePhoto.isUserInteractionEnabled = true
         headerView.addSubview(profilePhoto)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapProfilePhoto))
+        profilePhoto.addGestureRecognizer(tap)
+        
         
         // Name
         
         // Email
-        let emailLabel = UILabel(frame: CGRect(x: 20, y: profilePhoto.bottom+30, width: view.width-40, height: 100))
+        let emailLabel = UILabel(frame: CGRect(x: 20, y: profilePhoto.bottom+10, width: view.width-40, height: 100))
         headerView.addSubview(emailLabel)
         emailLabel.text = currentEmail
         emailLabel.textAlignment = .center
+        emailLabel.textColor = .white
         emailLabel.font = .systemFont(ofSize: 20, weight: .bold)
         
         if let name = name {
@@ -96,6 +105,19 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         if let ref = profilePhotoRef {
             //Fetch Image
         }
+    }
+    
+    @objc private func didTapProfilePhoto() {
+        guard let myEmail = UserDefaults.standard.string(forKey: "email"),
+              myEmail == currentEmail else {
+            return
+        }
+        
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
+        picker.allowsEditing = true
+        present(picker, animated: true)
     }
     
     private func fetchProfileData() {
@@ -159,5 +181,36 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.textLabel?.text = "Blog post goes here!"
         
         return cell
+    }
+}
+
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        guard let image = info[.editedImage] as? UIImage else {
+            return
+        }
+        
+        StorageManager.shared.uploadUserProfilePicture(
+            email: currentEmail,
+            image: image
+        ) { [weak self] success in
+            guard let strongSelf = self else {return}
+            if success {
+                // Update database
+                DatabaseManager.shared.updateProfilePhoto(email: strongSelf.currentEmail) { updated in
+                    guard updated else {
+                        return
+                    }
+                    DispatchQueue.main.async {
+                        strongSelf.fetchProfileData()
+                    }
+                }
+            }
+        }
     }
 }
