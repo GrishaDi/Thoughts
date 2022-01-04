@@ -17,6 +17,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // List of Posts
     
+    private var user: User?
+    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -59,7 +61,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         fetchProfileData()
     }
     
-    private func setUpTableHeader() {
+    private func setUpTableHeader(profilePhotoRef: String? = nil,
+                                  name: String? = nil) {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.width, height: view.width/1.5))
         headerView.backgroundColor = .systemBlue
         headerView.clipsToBounds = true
@@ -85,10 +88,30 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         emailLabel.text = currentEmail
         emailLabel.textAlignment = .center
         emailLabel.font = .systemFont(ofSize: 20, weight: .bold)
+        
+        if let name = name {
+            title = name
+        }
+        
+        if let ref = profilePhotoRef {
+            //Fetch Image
+        }
     }
     
     private func fetchProfileData() {
-        
+        DatabaseManager.shared.getUser(email: currentEmail) { [weak self] user in
+            guard let user = user else {
+                return
+            }
+            self?.user = user
+            
+            DispatchQueue.main.async {
+                self?.setUpTableHeader(
+                    profilePhotoRef: user.profilePictureRef,
+                    name: user.name
+                )
+            }
+        }
     }
     
     private func setUpSignOutButton() {
