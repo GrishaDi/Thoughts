@@ -82,6 +82,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             width: view.width/4,
             height: view.width/4
         )
+        profilePhoto.layer.masksToBounds = true
+        profilePhoto.layer.cornerRadius = profilePhoto.width/2
         profilePhoto.isUserInteractionEnabled = true
         headerView.addSubview(profilePhoto)
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTapProfilePhoto))
@@ -104,6 +106,20 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if let ref = profilePhotoRef {
             //Fetch Image
+            StorageManager.shared.downloadUrlForProfilePicture(path: ref) { url in
+                guard let url = url else {
+                    return
+                }
+                let task = URLSession.shared.dataTask(with: url) { data, _, _ in
+                    guard let data = data else {
+                        return
+                    }
+                    DispatchQueue.main.async {
+                        profilePhoto.image = UIImage(data: data)
+                    }
+                }
+                task.resume()
+            }
         }
     }
     
@@ -172,16 +188,31 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // TableView
     
+    private var posts: [BlogPost] = []
+    
+    private func fetchPosts() {
+        
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let post = posts[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = "Blog post goes here!"
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let vc = ViewPostViewController()
+        vc.title = posts[indexPath.row].title
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
 
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

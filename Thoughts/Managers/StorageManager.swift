@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseStorage
 import UIKit
+import SwiftUI
 
 final class StorageManager {
     static let shared = StorageManager()
@@ -40,10 +41,13 @@ final class StorageManager {
     }
     
     public func downloadUrlForProfilePicture (
-        user: User,
+        path: String,
         completion: @escaping (URL?) -> Void
     ) {
-         
+        container.reference(withPath: path)
+            .downloadURL { url, _ in
+            completion(url)
+        }
     }
     
     public func uploadBlogHeaderImage(
