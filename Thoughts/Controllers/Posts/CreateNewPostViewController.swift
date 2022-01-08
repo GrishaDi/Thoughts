@@ -27,6 +27,7 @@ class CreateNewPostViewController: UITabBarController {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.isUserInteractionEnabled = true
+        imageView.clipsToBounds = true
         imageView.image = UIImage(systemName: "photo")
         imageView.backgroundColor = .tertiarySystemBackground
         
@@ -100,8 +101,17 @@ class CreateNewPostViewController: UITabBarController {
               let email = UserDefaults.standard.string(forKey: "email"),
               !title.trimmingCharacters(in: .whitespaces).isEmpty,
               !body.trimmingCharacters(in: .whitespaces).isEmpty else {
+                  
+                  let alert = UIAlertController(title: "Enter Post Details",
+                                                message: "Please enter a title, text and select an image.",
+                                                preferredStyle: .alert)
+                  alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+                  present(alert, animated: true)
+                  
             return
         }
+        
+        print("Starting post..")
         
         let newPostId = UUID().uuidString
         
@@ -119,6 +129,7 @@ class CreateNewPostViewController: UITabBarController {
                 postId: newPostId
             ) { url in
                 guard let headerUrl = url else {
+                    print("Failed to uploar url for header!")
                     return
                 }
                 
@@ -131,6 +142,16 @@ class CreateNewPostViewController: UITabBarController {
                     headerImageUrl: headerUrl,
                     text: body
                 )
+                
+                DatabaseManager.shared.insert(blogPost: post, email: email) { [weak self] posted in
+                    guard posted else {
+                        print("Failed to post new blog article!")
+                        return
+                    }
+                    DispatchQueue.main.async {
+                        self?.didTapCancel()
+                    }
+                }
             }
         }
     }
