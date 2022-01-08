@@ -43,12 +43,17 @@ class CreateNewPostViewController: UITabBarController {
         return textView
     }()
     
+    private var selectedHeaderImage: UIImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         view.addSubview(titleField)
         view.addSubview(headerImageView)
         view.addSubview(textView)
+        let tap = UITapGestureRecognizer(target: self,
+                                         action: #selector(didTapHeader))
+        headerImageView.addGestureRecognizer(tap)
         configureButtons()
     }
     
@@ -56,8 +61,15 @@ class CreateNewPostViewController: UITabBarController {
         super.viewDidLayoutSubviews()
         
         titleField.frame = CGRect(x: 10, y: view.safeAreaInsets.top, width: view.width-20, height: 50)
-        headerImageView.frame = CGRect(x: 0, y: titleField.bottom+5, width: view.width, height: 160)
-        textView.frame = CGRect(x: 10, y: headerImageView.bottom+10, width: view.width-20, height: view.height-210-view.safeAreaInsets.top)
+        headerImageView.frame = CGRect(x: 0, y: titleField.bottom+10+view.safeAreaInsets.top, width: view.width, height: 160)
+        textView.frame = CGRect(x: 10, y: headerImageView.bottom+10+view.safeAreaInsets.top, width: view.width-20, height: view.height-210-view.safeAreaInsets.top)
+    }
+    
+    @objc private func didTapHeader() {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
+        present(picker, animated: true)
     }
     
     private func configureButtons() {
@@ -82,5 +94,59 @@ class CreateNewPostViewController: UITabBarController {
     
     @objc private func didTapPost() {
         //Check data and post
+        guard let title = titleField.text,
+              let body = textView.text,
+              let headerImage = selectedHeaderImage,
+              let email = UserDefaults.standard.string(forKey: "email"),
+              !title.trimmingCharacters(in: .whitespaces).isEmpty,
+              !body.trimmingCharacters(in: .whitespaces).isEmpty else {
+            return
+        }
+        
+        let newPostId = UUID().uuidString
+        
+        //Upload Header Image
+        StorageManager.shared.uploadBlogHeaderImage(
+            email: email,
+            image: headerImage,
+            postId: newPostId
+        ) { success in
+            guard success else {
+                return
+            }
+            StorageManager.shared.downloadUrlForPostHeader(
+                email: email,
+                postId: newPostId
+            ) { url in
+                guard let headerUrl = url else {
+                    return
+                }
+                
+                //Insert Post into Data Base
+                
+                let post = BlogPost(
+                    identifier: newPostId,
+                    title: title,
+                    timestamp: Date().timeIntervalSince1970,
+                    headerImageUrl: headerUrl,
+                    text: body
+                )
+            }
+        }
+    }
+}
+
+extension CreateNewPostViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        guard let image = info[.originalImage] as? UIImage else {
+            return
+        }
+        selectedHeaderImage = image
+        headerImageView.image = image
     }
 }

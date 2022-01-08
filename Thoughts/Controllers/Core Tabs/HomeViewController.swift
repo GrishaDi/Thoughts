@@ -16,7 +16,7 @@ class HomeViewController: UIViewController {
         button.setImage(UIImage(systemName: "square.and.pencil",
                                 withConfiguration: UIImage.SymbolConfiguration(pointSize: 32, weight: .medium)),
                                 for: .normal)
-        button.layer.cornerRadius = 40
+        button.layer.cornerRadius = 30
         button.layer.shadowColor = UIColor.label.cgColor
         button.layer.shadowOpacity = 0.5
         button.layer.shadowRadius = 7
@@ -34,10 +34,12 @@ class HomeViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        composeButton.frame = CGRect(x: view.frame.width - 80 - 16,
-                                     y: view.frame.height - 80 - 16 - view.safeAreaInsets.bottom,
-                                     width: 80,
-                                     height: 80)
+        composeButton.frame = CGRect(
+            x: view.frame.width - 80 - 16,
+            y: view.frame.height - 80 - 16 - view.safeAreaInsets.bottom,
+            width: 60,
+            height: 60
+        )
     }
 
     @objc private func didTapCreate() {
