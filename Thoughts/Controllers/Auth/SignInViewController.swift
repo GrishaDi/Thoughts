@@ -96,6 +96,10 @@ class SignInViewController: UITabBarController {
             guard success else {
                 return
             }
+            
+            // Update Subscription Status for Newly Signed In User
+            IAPManager.shared.getSubscriptionStatus(completion: nil)
+            
             DispatchQueue.main.async {
                 UserDefaults.standard.set(email, forKey: "email")
                 let vc = TabBarViewController()
