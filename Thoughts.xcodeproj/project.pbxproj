@@ -14,6 +14,7 @@
 		0466D66D274DF6B7005D229D /* PayWallHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466D66C274DF6B7005D229D /* PayWallHeaderView.swift */; };
 		0466D66F274F31C5005D229D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466D66E274F31C5005D229D /* Extensions.swift */; };
 		0466D671275487F9005D229D /* PayWallDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466D670275487F9005D229D /* PayWallDescriptionView.swift */; };
+		048207B52792EBAF00CDFDD7 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048207B42792EBAF00CDFDD7 /* HapticsManager.swift */; };
 		048DDF9427226CD600A818BD /* PayWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048DDF9327226CD600A818BD /* PayWallViewController.swift */; };
 		0497D0D32708804D00781699 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0497D0D22708804D00781699 /* ProfileViewController.swift */; };
 		0497D0D5270880F700781699 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0497D0D4270880F700781699 /* TabBarViewController.swift */; };
@@ -49,6 +50,7 @@
 		0466D66C274DF6B7005D229D /* PayWallHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallHeaderView.swift; sourceTree = "<group>"; };
 		0466D66E274F31C5005D229D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		0466D670275487F9005D229D /* PayWallDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallDescriptionView.swift; sourceTree = "<group>"; };
+		048207B42792EBAF00CDFDD7 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		048DDF9327226CD600A818BD /* PayWallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallViewController.swift; sourceTree = "<group>"; };
 		0497D0D22708804D00781699 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0497D0D4270880F700781699 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				0497D0E0270AA5F800781699 /* DatabaseManager.swift */,
 				0497D0E2270AA61800781699 /* AuthManager.swift */,
 				0497D0E4270AA63E00781699 /* StorageManager.swift */,
+				048207B42792EBAF00CDFDD7 /* HapticsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				0497D0D5270880F700781699 /* TabBarViewController.swift in Sources */,
 				04EE19742708691600027E54 /* SceneDelegate.swift in Sources */,
 				0497D0DB270AA40E00781699 /* ViewPostViewController.swift in Sources */,
+				048207B52792EBAF00CDFDD7 /* HapticsManager.swift in Sources */,
 				0497D0E5270AA63E00781699 /* StorageManager.swift in Sources */,
 				048DDF9427226CD600A818BD /* PayWallViewController.swift in Sources */,
 			);

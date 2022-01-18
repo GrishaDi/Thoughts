@@ -130,6 +130,9 @@ class CreateNewPostViewController: UITabBarController {
             ) { url in
                 guard let headerUrl = url else {
                     print("Failed to uploar url for header!")
+                    DispatchQueue.main.async {
+                        HapticsManager.shared.vibrate(for: .error)
+                    }
                     return
                 }
                 
@@ -146,9 +149,12 @@ class CreateNewPostViewController: UITabBarController {
                 DatabaseManager.shared.insert(blogPost: post, email: email) { [weak self] posted in
                     guard posted else {
                         print("Failed to post new blog article!")
+                         
                         return
                     }
+                    
                     DispatchQueue.main.async {
+                        HapticsManager.shared.vibrate(for: .success)
                         self?.didTapCancel()
                     }
                 }
