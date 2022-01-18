@@ -21,7 +21,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     private let tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(PostPreviewTableViewCell.self,
+                           forCellReuseIdentifier: PostPreviewTableViewCell.identifier)
         
         return tableView
     }()
@@ -171,6 +172,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                     DispatchQueue.main.async {
                         UserDefaults.standard.set(nil, forKey: "email")
                         UserDefaults.standard.set(nil, forKey: "name")
+                        UserDefaults.standard.set(false, forKey: "premium")
                         
                         let signInVC = SignInViewController()
                         signInVC.navigationItem.largeTitleDisplayMode = .always
@@ -209,19 +211,54 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = posts[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = post.title
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PostPreviewTableViewCell.identifier, for: indexPath) as? PostPreviewTableViewCell else {
+            fatalError()
+        }
+        cell.configure(with: .init(title: post.title, imageUrl: post.headerImageUrl))
         
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let vc = ViewPostViewController()
-        vc.title = posts[indexPath.row].title
-        navigationController?.pushViewController(vc, animated: true)
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        HapticsManager.shared.vibrateForSelection()
+        
+        var isOwnedByCurrentUser = false
+        if let email = UserDefaults.standard.string(forKey: "email") {
+            isOwnedByCurrentUser = email == currentEmail
+        }
+        
+        if !isOwnedByCurrentUser {
+            if IAPManager.shared.canViewPost {
+                let vc = ViewPostViewController(
+                    post: posts[indexPath.row],
+                    isOwnedByCurrentUser: isOwnedByCurrentUser
+                )
+                vc.navigationItem.largeTitleDisplayMode = .never
+                vc.title = "Post"
+                navigationController?.pushViewController(vc, animated: true)
+            }
+            else {
+                let vc = PayWallViewController()
+                present(vc, animated: true)
+            }
+        }
+        else {
+            // Our Post
+            let vc = ViewPostViewController(
+                post: posts[indexPath.row],
+                isOwnedByCurrentUser: isOwnedByCurrentUser
+            )
+            vc.navigationItem.largeTitleDisplayMode = .never
+            vc.title = "Post"
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
 
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
